@@ -251,15 +251,8 @@ const WeatherApp = () => {
 				className="container-fluid d-flex flex-column py-2 px-0 width-toggle-5 m-auto"
 				style={{ overflowX: "hidden" }}
 				id="weatherContainer">
-				<section className="app-header d-flex justify-content-between px-2 flex-row-reverse ">
-					<section className="city-location">
-						<h5 className="fw-bold fs-5" id="weatherLocation">
-							{db.get("WEATHER_LOCATION") || "Lagos 9ja"}
-						</h5>
-						<p className="date-time text-muted brand-small-text text-capitalize">
-							{getCurrentDate()}
-						</p>
-					</section>
+				<section className="app-header d-flex justify-content-between  ">
+					
 
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -293,6 +286,14 @@ const WeatherApp = () => {
 							{db.get("WEATHER_DESCRIPTION") || "clear sky"}
 						</p>
 					</section>
+					<section className="city-location">
+						<h5 className="fw-bold fs-5" id="weatherLocation">
+							{db.get("WEATHER_LOCATION") || "Lagos 9ja"}
+						</h5>
+						<p className="date-time text-muted brand-small-text text-capitalize">
+							{getCurrentDate()}
+						</p>
+					</section>
 					<section
 						className="current-weather-icon my-4 mx-3 px-2"
 						id="main-weather-icon-container">
@@ -312,7 +313,12 @@ const WeatherApp = () => {
 					onClick={showMoreWeather}>
 					<section className="current-weather-wind-speed d-flex flex-column align-items-center justify-content-center">
 						<section className="wind-icon py-1">
-							<img src={WindIcon} height={"30"} width={"30"} alt="wind-icon" />
+							<img 
+								src={WindIcon} 
+								height={"30"} 
+								width={"30"} 
+								alt="wind-icon" 
+							/>
 						</section>
 						<p
 							className="wind-value fw-bold text-light  brand-small-text text-center py-1 m-0"
@@ -378,7 +384,7 @@ const WeatherApp = () => {
 					</section>
 				</section>
 				<section
-					className="future-weather-forecast my-4 d-flex align-items-center justify-content-between "
+					className="future-weather-forecast my-4"
 					style={{ overflowX: "scroll" }}>
 					{mapDbSavedData()}
 				</section>

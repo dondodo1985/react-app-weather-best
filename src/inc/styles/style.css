@@ -191,7 +191,7 @@ section.footer-nav > section {
 }
 
 .wind-icon>img,.humidity-icon>img,.rain-icon>img,.wind-text,.rain-text,
-.humidity-text,#searchWeatherForm,.label-city{
+.humidity-text,#searchWeatherForm,.label-city,.wind-icon,.humidity-icon,.rain-icon{
 	background-color: var(--brand-secondary-color) !important;
 }
 
@@ -204,6 +204,45 @@ section.footer-icons>svg:hover {
 	fill: #2d95bd ;
 }
 
+.future-weather-forecast-container {
+    display:flex;
+    /*overflow-y: hidden;*/
+    /*overflow-x: scroll;*/
+    /*padding: 20px;*/
+	align-items: center;
+	justify-content:space-between;
+	flex-wrap: nowrap;
+}
+
+
+.future-weather-forecast {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    object-fit:contain;
+    width:100%;
+    max-height: 135px;
+    transition: transform 450ms;
+}
+
+.future-weather-container,.weather-wrapper,.weather-icon-section>img{
+	background-color: #ffffff !important;
+}
+
+.future-weather-container{
+	display:flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.future-weather-container::-webkit-scrollbar {
+    display: none;
+}
+
+.future-weather-forecast:hover{
+    transform: scale(1.08);
+    opacity: 1;
+}
 
 /* utility component */
 
