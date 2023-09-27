@@ -34,9 +34,6 @@
 	--brand-small-text-2:0.7rem;
 }
 
-/*.container-fluid{
-	background-color: #fafafa;
-}*/
 
 #spinner {
 	background: ghostwhite;
@@ -213,7 +210,20 @@ section.footer-icons>svg:hover {
 	justify-content:space-between;
 	flex-wrap: nowrap;
 }
+/*below*/
+.current-weather-container{
+	z-index: 0;
+}
+/*on top*/
+.mx-2{
+	z-index: 1;
+}
 
+.footer-container{
+	z-index: 2;
+}
+
+.hidden { display:none; }
 
 .future-weather-forecast {
 	display: flex;
@@ -285,6 +295,11 @@ section.footer-icons>svg:hover {
 	top:0;
 }
 
+.utility-notch:hover{
+	cursor: pointer;
+}
+
+
 /* weather app styling */
 
 .current-weather-unit {
@@ -331,7 +346,15 @@ section.footer-icons>svg:hover {
 
 .map-container{
 	transform: translate(165px,-5px);
+	background-color: transparent;
+	border-radius: 4px;
 }
+
+.map-container>img{
+	background-color: transparent;
+	border-radius: 5px;
+}
+
 
 .ripple-container{
 	transform: translateX(-17px);

@@ -43,7 +43,7 @@ const WeatherApp = () => {
 
 	savedLocation = db.get("USER_DEFAULT_LOCATION");
 
-	const addUtilityComponentHeight = () => {
+		const addUtilityComponentHeight = () => {
 		jQuery(($) => {
 			$.noConflict();
 			$(".cmp").removeClass("d-none");
@@ -167,8 +167,8 @@ const WeatherApp = () => {
 	const SearchComponent = () => {
 		const [searchValue, setSearchValue] = useState("");
 		return (
-			<section className="cmp d-flex align-items-center justify-content-center flex-column my-5">
-				<form
+			<section className="cmp d-flex align-items-center justify-content-center flex-column my-5" >
+				<form 
 					id="searchWeatherForm"
 					onSubmit={(e) => {
 						formHandler.handleWeatherForm(e);
@@ -243,17 +243,15 @@ const WeatherApp = () => {
 		setComponentToInsert(<SearchComponent />);
 
 	};
-
+	
 	return (
 		<React.Fragment>
 			<Spinner />
 			<div
 				className="container-fluid d-flex flex-column py-2 px-0 width-toggle-5 m-auto"
-				style={{ overflowX: "hidden" }}
+				//style={{ overflowX: "hidden" }}
 				id="weatherContainer">
 				<section className="app-header d-flex justify-content-between  ">
-					
-
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width={"30px"}
@@ -423,7 +421,7 @@ const WeatherApp = () => {
 				<br />
 				<br />
 				{/* @utilityTags - dynamic components to be inserted into the footer component @onClick event - responsible for the search component trigger on the app || weather route*/}
-				<Footer utilityTags={componentToInsert} onClick={testSearch} />
+				<Footer utilityTags={componentToInsert} onClick={testSearch}  />
 			</div>
 		</React.Fragment>
 	);

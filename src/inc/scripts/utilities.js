@@ -4,13 +4,13 @@ export function navigate(page) {
 	window.location.href = `${page}`;
 }
 
-const closeUtilityComponent = () => {
+/*const closeUtilityComponent = () => {
 	jQuery(($) => {
 		$.noConflict();
 
 		$(".utility-component").removeClass("add-utility-component-height");
 	});
-};
+};*/
 
 export const getCurrentDate = () => {
 	let day, month, date, result, dateExtension;

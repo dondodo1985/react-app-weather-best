@@ -5,7 +5,7 @@ import navigate from "../inc/scripts/utilities";
 import Button from "./../components/button";
 import jQuery from "jquery";
 import { db } from "../backend/app_backend";
-import { getCurrentDate } from "../inc/scripts/utilities";
+//import { getCurrentDate } from "../inc/scripts/utilities";
 import * as currentWeather from "./../apis/getCurrentWeather";
 //import HumidityIcon from "./../assets/humidity-icon.svg";
 //import WindIcon from "./../assets/wind-icon.svg";
