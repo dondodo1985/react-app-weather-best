@@ -24,6 +24,8 @@ import Swal from "sweetalert2";
 //import ScatteredClouds from "./../assets/static/scattered-clouds.svg";
 //import FewClouds from "./../assets/static/few-clouds.svg";
 //import Haze from "./../assets/static/haze.svg";
+import wmo from "./../assets/wmo.jpg";
+
 import * as utilis from "./../inc/scripts/utilities";
 const ForecastWeather = () => {
 	//check if the user navigated from the home page
@@ -44,7 +46,8 @@ const ForecastWeather = () => {
 			const $user_longitude = db.get("USER_LONGITUDE");
 			let FORECAST_URL;
 			if (
-				$user_city == null && $user_latitude == null &&
+				$user_city == null &&
+				$user_latitude == null &&
 				$user_longitude == null
 			) {
 				console.log(typeof $user_city);
@@ -149,7 +152,10 @@ const ForecastWeather = () => {
 					utilis.getTimeFromDateString(result.list[i].dt_txt)
 				)}`
 			);
-			db.create(`WEATHER_FORECAST_ICON_${i}`, `${result.list[i].weather[0].id}`);
+			db.create(
+				`WEATHER_FORECAST_ICON_${i}`,
+				`${result.list[i].weather[0].id}`
+			);
 			db.create(
 				`WEATHER_FORECAST_UNIT_${i}`,
 				`${Math.ceil(result.list[i].main.temp)}`
@@ -405,8 +411,9 @@ const ForecastWeather = () => {
 
 	return (
 		<React.Fragment>
-			
-			<section className="container-fluid width-toggle-5 m-auto" id="forecastPage">
+			<section
+				className="container-fluid width-toggle-5 m-auto"
+				id="forecastPage">
 				<section className="app-header d-flex justify-content-between">
 					<div className="toggle-btn my-3">
 						<svg
@@ -426,7 +433,7 @@ const ForecastWeather = () => {
 						)}`}</h5>
 					</section>
 					<div className="toggle-btn my-3">
-						<svg
+						{/*<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width={"30px"}
 							height={"30px"}
@@ -438,10 +445,11 @@ const ForecastWeather = () => {
 								fill="lightskyblue"
 								d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zM13 4v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z"
 							/>
-						</svg>
+						</svg>*/}
+						<img src={wmo} height={"60"} width={"60"} alt="world-metereology" />
 					</div>
 				</section>
-				<section className="my-1 next-week-component-container d-flex flex-column my-1">
+				<section className="next-week-component-container d-flex flex-column my-1">
 					<br />
 					<section className="d-flex align-items-center justify-content-between mb-2 flex-row-reverse">
 						<h6 className="fw-bold fs-6 my-3 text-start text-capitalize text-muted">
@@ -462,11 +470,9 @@ const ForecastWeather = () => {
 					<section
 						className="day-1-weather future-weather-forecast my-4 d-flex align-items-center justify-content-between "
 						style={{ overflowX: "scroll" }}>
-						{!(forecastData == null) ? (
-							mapFirstDayData(forecastData)
-						) : (
-							"loading.."
-						)}
+						{!(forecastData == null)
+							? mapFirstDayData(forecastData)
+							: "loading.."}
 					</section>
 
 					<br />
@@ -479,11 +485,9 @@ const ForecastWeather = () => {
 					<section
 						className="day-2-weather future-weather-forecast my-4 d-flex align-items-center justify-content-between "
 						style={{ overflowX: "scroll" }}>
-						{!(forecastData == null) ? (
-							mapSecondDayData(forecastData)
-						) : (
-							"loading.."
-						)}
+						{!(forecastData == null)
+							? mapSecondDayData(forecastData)
+							: "loading.."}
 					</section>
 
 					<br />
@@ -496,14 +500,12 @@ const ForecastWeather = () => {
 					<section
 						className="day-3-weather future-weather-forecast my-4 d-flex align-items-center justify-content-between "
 						style={{ overflowX: "scroll" }}>
-						{!(forecastData == null) ? (
-							mapThirdDayData(forecastData)
-						) : (
-							"loading.."
-						)}
+						{!(forecastData == null)
+							? mapThirdDayData(forecastData)
+							: "loading.."}
 					</section>
-					<br />
 
+					<br />
 					<section className="day-4-container future-weather-days d-flex align-items-center justify-content-start">
 						<section className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
 							<p className="brand-small-text text-capitalize fw-bold">Day 4</p>
@@ -513,12 +515,11 @@ const ForecastWeather = () => {
 					<section
 						className="day-4-weather future-weather-forecast my-4 d-flex align-items-center justify-content-between "
 						style={{ overflowX: "scroll" }}>
-						{!(forecastData == null) ? (
-							mapFourthDayData(forecastData)
-						) : (
-							"loading.."
-						)}
+						{!(forecastData == null)
+							? mapFourthDayData(forecastData)
+							: "loading.."}
 					</section>
+
 					<br />
 					<section className="day-5-container future-weather-days d-flex align-items-center justify-content-start">
 						<section className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
@@ -530,11 +531,9 @@ const ForecastWeather = () => {
 					<section
 						className="day-5-weather future-weather-forecast my-4 d-flex align-items-center justify-content-between "
 						style={{ overflowX: "scroll" }}>
-						{!(forecastData == null) ? (
-							mapFifthDayData(forecastData)
-						) : (
-							"loading.."
-						)}
+						{!(forecastData == null)
+							? mapFifthDayData(forecastData)
+							: "loading.."}
 					</section>
 				</section>
 

@@ -21,6 +21,8 @@ import { db } from "../backend/app_backend";
 import HumidityIcon from "./../assets/humidity-icon.svg";
 import WindIcon from "./../assets/wind-icon.svg";
 import PressureIcon from "./../assets/pressure-icon.svg";
+import wmo from "./../assets/wmo.jpg";
+
 const WeatherMain = (props) => {
 	const navigateHome = () => {
 		navigate("/weather");
@@ -54,7 +56,7 @@ const WeatherMain = (props) => {
 						</h5>
 					</section>
 					<div className="toggle-btn ">
-						<svg
+						{/*<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width={"30px"}
 							height={"30px"}
@@ -65,7 +67,8 @@ const WeatherMain = (props) => {
 								fill="lightskyblue"
 								d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zM13 4v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z"
 							/>
-						</svg>
+						</svg>*/}
+						<img src={wmo} height={"60"} width={"60"} alt="world-metereology" />
 					</div>
 				</section>
 
@@ -96,7 +99,7 @@ const WeatherMain = (props) => {
 							id="wind-value">
 							{db.get("SUB_WEATHER_WIND_VALUE") || "2.90 m/s"}
 						</p>
-						<p className="m-0 wind-text text-muted text-capitalize brand-small-text-2 weather-text text-center">
+						<p className="m-0 wind-text text-muted text-capitalize brand-small-text-21 weather-text text-center">
 							Wind
 						</p>
 					</section>
@@ -115,7 +118,7 @@ const WeatherMain = (props) => {
 							id="humidity-value">
 							{db.get("SUB_WEATHER_HUMIDITY_VALUE") || "98%"}
 						</p>
-						<p className="m-0 humidity-text text-muted text-capitalize text-center brand-small-text-2 weather-text">
+						<p className="m-0 humidity-text text-muted text-capitalize text-center brand-small-text-21 weather-text">
 							humidity
 						</p>
 					</section>
@@ -134,7 +137,7 @@ const WeatherMain = (props) => {
 							id="pressure-value">
 							{db.get("SUB_WEATHER_PRESSURE_VALUE") || "1000 hPa"}
 						</p>
-						<p className="m-0 rain-text text-muted text-capitalize text-center brand-small-text-2 weather-text">
+						<p className="m-0 rain-text text-muted text-capitalize text-center brand-small-text-21 weather-text">
 							Pressure
 						</p>
 					</section>

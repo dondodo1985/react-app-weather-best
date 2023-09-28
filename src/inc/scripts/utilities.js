@@ -114,7 +114,7 @@ export const getCurrentDate = () => {
 		dateExtension = "th";
 	}
 
-	result = `${day}, ${date}${dateExtension} of ${month}`;
+	result = `${day}, ${date}${dateExtension}  ${month}`;
 	return result;
 };
 

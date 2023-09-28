@@ -224,7 +224,7 @@ export const updateReactDom = (result) => {
 		$("#humidity-value").html(`${result.main.humidity} %`);
 		$("#pressure-value").html(`${result.main.pressure} hPa`)
 		//create the database values for offline caching
-		db.create("WEATHER_LOCATION", `${result.name} ${result.sys.country}`);
+		db.create("WEATHER_LOCATION", `${result.name} ,${result.sys.country}`);
 		db.create("WEATHER_DEG", result.main.temp);
 		db.create("WEATHER_DESCRIPTION", result.weather[0].description);
 		db.create("WEATHER_CODE", result.weather[0].id);

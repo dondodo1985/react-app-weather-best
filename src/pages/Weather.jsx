@@ -30,6 +30,7 @@ import Day from "./../assets/static/day.svg";
 import HumidityIcon from "./../assets/humidity-icon.svg";
 import WindIcon from "./../assets/wind-icon.svg";
 import PressureIcon from "./../assets/pressure-icon.svg";
+import wmo from "./../assets/wmo.jpg";
 
 const WeatherApp = () => {
 	//check if the user navigated from the home page
@@ -43,7 +44,7 @@ const WeatherApp = () => {
 
 	savedLocation = db.get("USER_DEFAULT_LOCATION");
 
-		const addUtilityComponentHeight = () => {
+	const addUtilityComponentHeight = () => {
 		jQuery(($) => {
 			$.noConflict();
 			$(".cmp").removeClass("d-none");
@@ -51,9 +52,9 @@ const WeatherApp = () => {
 		});
 	};
 
-	const navigateToForecast = () =>{
+	const navigateToForecast = () => {
 		navigate("/forecast");
-	}
+	};
 	class MappedSavedDataTemplate {
 		constructor(id, time, icon, unit) {
 			this.id = id;
@@ -84,9 +85,9 @@ const WeatherApp = () => {
 		}
 
 		const uiData = weatherData.map((data, index) => {
-			const handleElementClick = () =>{
+			const handleElementClick = () => {
 				navigate("/forecast");
-			}
+			};
 			return (
 				<FutureWeatherComponent
 					key={data.id}
@@ -161,22 +162,25 @@ const WeatherApp = () => {
 		addUtilityComponentHeight();
 		//change the variable to hold the current component to insert
 		setComponentToInsert(<UtilityForecastTags />);
-		
 	};
 
 	const SearchComponent = () => {
 		const [searchValue, setSearchValue] = useState("");
 		return (
-			<section className="cmp d-flex align-items-center justify-content-center flex-column my-5" >
-				<form 
+			<section className="cmp d-flex align-items-center justify-content-center flex-column my-5">
+				<form
 					id="searchWeatherForm"
 					onSubmit={(e) => {
 						formHandler.handleWeatherForm(e);
 						setWeatherInput();
-					}} onChange={(e)=>{
-						setSearchValue(e.target.value)
+					}}
+					onChange={(e) => {
+						setSearchValue(e.target.value);
 					}}>
-					<label htmlFor="searchWeather" className="py-2 text-capitalize " id="searchWeatherForm">
+					<label
+						htmlFor="searchWeather"
+						className="py-2 text-capitalize "
+						id="searchWeatherForm">
 						search city
 					</label>
 					<input
@@ -199,7 +203,7 @@ const WeatherApp = () => {
 					</p>
 
 					<section className="d-none "></section>
-					<SearchMenuComponent search={searchValue}/>
+					<SearchMenuComponent search={searchValue} />
 					<Button
 						text="track saved location!"
 						className="shadow brand-btn-3-secondary toggle-width-3 my-5 text-dark text-capitalize p-2"
@@ -214,36 +218,43 @@ const WeatherApp = () => {
 		);
 	};
 
-	const SearchMenuComponent = ({search}) => {
+	const SearchMenuComponent = ({ search }) => {
 		const [dataArray, changeDataArray] = useState([]);
-		useEffect(()=>{
-			if(search.length > 3){
-				formHandler.findCity(search,changeDataArray)
+		useEffect(() => {
+			if (search.length > 3) {
+				formHandler.findCity(search, changeDataArray);
 			}
-		},[search])
+		}, [search]);
 
-		function clickHandler(e){
-			jQuery("#searchWeather").val(e.target.textContent)
+		function clickHandler(e) {
+			jQuery("#searchWeather").val(e.target.textContent);
 			formHandler.handleWeatherForm(e, savedLocation);
-			setWeatherInput()
+			setWeatherInput();
 		}
 
 		return (
 			<section className="cmp d-flex align-items-center justify-content-start bg-white px-2 mt-2 rounded">
 				<ul className="m-0 p-0">
-					{dataArray.map((data,ind)=> <li key={ind} onClick={clickHandler} style={{cursor:"pointer"}}><p className="text-dark text-left m-0" style={{fontSize:"14px"}}>{data.name}</p></li>)}
+					{dataArray.map((data, ind) => (
+						<li key={ind} onClick={clickHandler} style={{ cursor: "pointer" }}>
+							<p
+								className="text-dark text-left m-0"
+								style={{ fontSize: "14px" }}>
+								{data.name}
+							</p>
+						</li>
+					))}
 				</ul>
-			</section>		
-		)
-	}
+			</section>
+		);
+	};
 
 	//load the search component into the utility component
 	const testSearch = () => {
 		addUtilityComponentHeight();
 		setComponentToInsert(<SearchComponent />);
-
 	};
-	
+
 	return (
 		<React.Fragment>
 			<Spinner />
@@ -252,7 +263,7 @@ const WeatherApp = () => {
 				//style={{ overflowX: "hidden" }}
 				id="weatherContainer">
 				<section className="app-header d-flex justify-content-between  ">
-					<svg
+					{/*	<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width={"30px"}
 						height={"30px"}
@@ -265,7 +276,8 @@ const WeatherApp = () => {
 							fill="lightskyblue"
 							d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zM13 4v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z"
 						/>
-					</svg>
+				</svg>*/}
+					<img src={wmo} height={"60"} width={"60"} alt="world-metereology" />
 				</section>
 				<section className="current-weather-container d-flex justify-content-between px-2 my-3">
 					<section className="current-weather-value-container">
@@ -285,9 +297,9 @@ const WeatherApp = () => {
 						</p>
 					</section>
 					<section className="city-location">
-						<h5 className="fw-bold fs-5" id="weatherLocation">
+						<h1 className="fw-bold fs-5" id="weatherLocation">
 							{db.get("WEATHER_LOCATION") || "Lagos 9ja"}
-						</h5>
+						</h1>
 						<p className="date-time text-muted brand-small-text text-capitalize">
 							{getCurrentDate()}
 						</p>
@@ -311,19 +323,14 @@ const WeatherApp = () => {
 					onClick={showMoreWeather}>
 					<section className="current-weather-wind-speed d-flex flex-column align-items-center justify-content-center">
 						<section className="wind-icon py-1">
-							<img 
-								src={WindIcon} 
-								height={"30"} 
-								width={"30"} 
-								alt="wind-icon" 
-							/>
+							<img src={WindIcon} height={"30"} width={"30"} alt="wind-icon" />
 						</section>
 						<p
 							className="wind-value fw-bold text-light  brand-small-text text-center py-1 m-0"
 							id="wind-value">
 							{db.get("SUB_WEATHER_WIND_VALUE") || "2.90 m/s"}
 						</p>
-						<p className="m-0 wind-text text-muted text-capitalize brand-small-text-2 weather-text text-center">
+						<p className="m-0 wind-text text-muted text-capitalize brand-small-text-21 weather-text text-center">
 							Wind
 						</p>
 					</section>
@@ -342,7 +349,7 @@ const WeatherApp = () => {
 							id="humidity-value">
 							{db.get("SUB_WEATHER_HUMIDITY_VALUE") || "98%"}
 						</p>
-						<p className="m-0 humidity-text text-muted text-capitalize text-center brand-small-text-2 weather-text">
+						<p className="m-0 humidity-text text-muted text-capitalize text-center brand-small-text-21 weather-text">
 							humidity
 						</p>
 					</section>
@@ -361,22 +368,29 @@ const WeatherApp = () => {
 							id="pressure-value">
 							{db.get("SUB_WEATHER_PRESSURE_VALUE") || "1000 hPa"}
 						</p>
-						<p className="m-0 rain-text text-muted text-capitalize text-center brand-small-text-2 weather-text">
+						<p className="m-0 rain-text text-muted text-capitalize text-center brand-small-text-21 weather-text">
 							Pressure
 						</p>
 					</section>
-
 				</section>
 				<section className="future-weather-days d-flex align-items-center justify-content-start">
-					<section role="button" className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
+					<section
+						role="button"
+						className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
 						<p className="brand-small-text text-capitalize fw-bold">today</p>
 						<div className="future-weather-notch-active"></div>
 					</section>
-					<section role="button" className="tomorrow-section d-flex mx-2 flex-column align-items-center justify-content-center" onClick={navigateToForecast}>
+					<section
+						role="button"
+						className="tomorrow-section d-flex mx-2 flex-column align-items-center justify-content-center"
+						onClick={navigateToForecast}>
 						<p className="brand-small-text text-capitalize">tomorrow</p>
 						<div className="future-weather-notch"></div>
 					</section>
-					<section role="button" className="week-section d-flex mx-2 flex-column align-items-center justify-content-center" onClick={navigateToForecast}>
+					<section
+						role="button"
+						className="week-section d-flex mx-2 flex-column align-items-center justify-content-center"
+						onClick={navigateToForecast}>
 						<p className="brand-small-text text-capitalize">next</p>
 						<div className="future-weather-notch"></div>
 					</section>
@@ -421,7 +435,7 @@ const WeatherApp = () => {
 				<br />
 				<br />
 				{/* @utilityTags - dynamic components to be inserted into the footer component @onClick event - responsible for the search component trigger on the app || weather route*/}
-				<Footer utilityTags={componentToInsert} onClick={testSearch}  />
+				<Footer utilityTags={componentToInsert} onClick={testSearch} />
 			</div>
 		</React.Fragment>
 	);
