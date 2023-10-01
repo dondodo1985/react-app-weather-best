@@ -191,7 +191,8 @@ section.footer-icons > svg,
 	color: #ffffff !important;
 }
 
-section.footer-icons > svg:hover {
+section.footer-icons > svg path:hover,
+.footer-svgs path:hover {
 	fill: #2d95bd;
 }
 
