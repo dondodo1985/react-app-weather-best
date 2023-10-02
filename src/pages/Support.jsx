@@ -44,7 +44,7 @@ const Settings = () => {
 						Few ways you can support the project
 					</p>
 
-					<section className="sponsor-me text-muted text-start">
+					<section className="sponsor-me text-muted text-start w-100">
 						<section className="icon-section d-flex p-2">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

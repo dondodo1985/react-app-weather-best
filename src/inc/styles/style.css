@@ -11,6 +11,10 @@
 
 * {
 	font-family: poppins;
+	/*background-color: #fafafa;*/
+}
+
+body {
 	background-color: #fafafa;
 }
 
@@ -258,6 +262,7 @@ section.footer-icons > svg path:hover,
 	transform: scale(1.08);
 	opacity: 1;
 }
+
 /*pages settings */
 
 .settings {
@@ -316,13 +321,14 @@ h5 {
 /*end pages settings*/
 
 /* pages support*/
+
 .support-developer {
 	width: 60vw;
 	max-width: 500px;
 	min-width: 300px;
 	margin: 0 auto;
 }
-
+/*end pages support*/
 /* utility component */
 
 .utility-component {

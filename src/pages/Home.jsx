@@ -22,7 +22,7 @@ const Home = () => {
       title: "Default Location",
       html: "<input type='text' placeholder='Enter location' class='form-control border-1 p-3 brand-small-text w-100' id='defaultLocation'>",
       confirmButtonText: "Save Location",
-      confirmButtonColor: "rgb(83, 166, 250)",
+      confirmButtonColor: "#33aaf7",
       allowOutsideClick: false,
       allowEscapeKey: false,
       allowEnterKey: false,

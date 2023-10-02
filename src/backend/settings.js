@@ -31,6 +31,7 @@ export const saveLocation = (e) => {
 				position: "top",
 				showConfirmButton: false,
 				timer: 3000,
+				background:"white",
 			});
 		}
 	});
@@ -56,11 +57,12 @@ export const trackSavedLocationWeather = () => {
 				db.update("TRACK_SAVED_LOCATION_WEATHER", true);
 				Swal.fire({
 					text: "Saved location would be tracked!",
-					icon: "success",
+					icon: "info",
 					toast: true,
 					position: "top",
 					showConfirmButton: false,
 					timer: 3000,
+					background:"white",
 				});
 			} else {
 				db.create("TRACK_SAVED_LOCATION_WEATHER", true);
@@ -71,6 +73,7 @@ export const trackSavedLocationWeather = () => {
 					position: "top",
 					showConfirmButton: false,
 					timer: 3000,
+					background:"white",
 				});
 			}
 		} else {
@@ -83,6 +86,7 @@ export const trackSavedLocationWeather = () => {
 					position: "top",
 					showConfirmButton: false,
 					timer: 3000,
+					background:"white",
 				});
 			}
 		}
@@ -113,40 +117,41 @@ export const changeWeatherUnit = (e) => {
 			case "2":
 				unitToStore = "imperial";
 				break;
-			
+
 			default:
 				Swal.fire({
-					toast:true,
-					text:"Select a valid unit",
-					icon:"warning",
-					timer:1000,
-					position:"top",
-					showConfirmButton:false,
-					
-				})
+					toast: true,
+					text: "Select a valid unit",
+					icon: "warning",
+					timer: 1000,
+					position: "top",
+					showConfirmButton: false,
+				});
 				break;
 		}
 		//check if valuex exists in the DB
-		if(db.get("WEATHER_UNIT")){
-			db.update("WEATHER_UNIT",unitToStore);
+		if (db.get("WEATHER_UNIT")) {
+			db.update("WEATHER_UNIT", unitToStore);
 			Swal.fire({
-				toast:true,
-				text:"Weather unit updated successfully",
-				icon:"success",
-				timer:1500,
-				position:"top",
-				showConfirmButton:false
-			})
-		}else{
-			db.create("WEATHER_UNIT",unitToStore);
+				toast: true,
+				text: "Weather unit updated successfully",
+				icon: "success",
+				timer: 1500,
+				position: "top",
+				showConfirmButton: false,
+				background:"white",
+			});
+		} else {
+			db.create("WEATHER_UNIT", unitToStore);
 			Swal.fire({
-				toast:true,
-				text:"Weather unit stored successfully",
-				icon:"info",
-				timer:1500,
-				position:"top",
-				showConfirmButton:false
-			})
+				toast: true,
+				text: "Weather unit stored successfully",
+				icon: "success",
+				timer: 1500,
+				position: "top",
+				showConfirmButton: false,
+				background:"white",
+			});
 		}
 	});
 };
