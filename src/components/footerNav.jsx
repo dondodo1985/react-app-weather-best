@@ -6,6 +6,10 @@ const FooterNav = (props) => {
 		navigate("weather");
 	};
 
+	const searchNavigation = () => {
+		navigate("weather");
+	};
+
 	const settingsNavigation = () => {
 		navigate("settings");
 	};
@@ -55,9 +59,7 @@ const FooterNav = (props) => {
 									{" "}
 									<g>
 										{" "}
-										<path
-											//style="fill:#ffffff;"
-											d="M125.967,51.533V20.314h-16.862V38.06L77.569,12.814L0,74.869h21.361v67.455h112.416v-67.45h21.361 L125.967,51.533z M125.925,134.472H97.546V82.37H57.58v52.103H29.202V71.146l48.356-38.689l48.355,38.689v63.326H125.925z"></path>{" "}
+										<path d="M125.967,51.533V20.314h-16.862V38.06L77.569,12.814L0,74.869h21.361v67.455h112.416v-67.45h21.361 L125.967,51.533z M125.925,134.472H97.546V82.37H57.58v52.103H29.202V71.146l48.356-38.689l48.355,38.689v63.326H125.925z"></path>{" "}
 									</g>
 								</g>{" "}
 							</g>
@@ -69,7 +71,11 @@ const FooterNav = (props) => {
 				<section
 					role="button"
 					className="footer-settings-section  brand-text-mute"
-					onClick={props.onClick}>
+					onClick={
+						props.onClick
+							? !searchNavigation || props.onClick
+							: searchNavigation
+					}>
 					<section className="footer-icons footer-settings-svg-section d-flex align-items-center justify-content-center my-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

@@ -86,7 +86,7 @@ export const handleWeatherForm = (e, search) => {
 	});
 };
 
-export const findCity = (searchTerm,updateDataArray)=> {
+export const findCity = (searchTerm, updateDataArray) => {
 	if (db.get("TRACK_SAVED_LOCATION_WEATHER") == "false") {
 		Swal.fire({
 			text: "Changes settings to track default location",
@@ -100,14 +100,14 @@ export const findCity = (searchTerm,updateDataArray)=> {
 		});
 	}
 	const XAPIKEY = "lNhOELJHDMrwCwm40hFvwA==teZv2EboEGJfonOC";
-	jQuery(($)=>{
-		console.log("Ajax sent")
+	jQuery(($) => {
+		console.log("Ajax sent");
 		$.ajax({
 			url: `https://api.api-ninjas.com/v1/city?name=${searchTerm}&limit=4`,
 			processData: false,
 
 			headers: {
-				'X-Api-Key':XAPIKEY
+				"X-Api-Key": XAPIKEY,
 			},
 			success: (result, status, xhr) => {
 				if (xhr.status != 200) {
@@ -121,14 +121,14 @@ export const findCity = (searchTerm,updateDataArray)=> {
 					});
 				} else {
 					//check if the API returned a legit response
-					console.log(result)
-					updateDataArray(result)
+					console.log(result);
+					updateDataArray(result);
 				}
 			},
 			error: (xhr, status, error) => {
 				$("#searchWeather").val(" ");
 				closeUtilityComponent();
-				console.log("Error")
+				console.log("Error");
 
 				//check if the error is empty
 				if (error == "") {
@@ -157,10 +157,9 @@ export const findCity = (searchTerm,updateDataArray)=> {
 					});
 				}
 			},
-		})
-
-	})
-}
+		});
+	});
+};
 
 //function to determine custom icon packs to use
 export let weatherSvg;
@@ -219,12 +218,12 @@ export const updateReactDom = (result) => {
 		$("#main-weather-icon-container").html(
 			`<img src=${weatherSvg} alt="main-weather-icon" width="64" height="64"/>`
 		);
-		//sub weather components 
-		$("#wind-value").html(`${result.wind.speed} m/s` );
+		//sub weather components
+		$("#wind-value").html(`${result.wind.speed} m/s`);
 		$("#humidity-value").html(`${result.main.humidity} %`);
-		$("#pressure-value").html(`${result.main.pressure} hPa`)
+		$("#pressure-value").html(`${result.main.pressure} hPa`);
 		//create the database values for offline caching
-		db.create("WEATHER_LOCATION", `${result.name} ,${result.sys.country}`);//?
+		db.create("WEATHER_LOCATION", `${result.name}, ${result.sys.country}`); //?
 		db.create("WEATHER_DEG", result.main.temp);
 		db.create("WEATHER_DESCRIPTION", result.weather[0].description);
 		db.create("WEATHER_CODE", result.weather[0].id);
@@ -255,7 +254,6 @@ export const getCurrentWeather = (location) => {
 				} else {
 					//check if the API returned a legit response
 					if (result.cod === 200) {
-						
 						updateReactDom(result);
 					}
 				}

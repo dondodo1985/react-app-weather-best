@@ -285,7 +285,7 @@ const WeatherApp = () => {
 					</section>
 					<section className="city-location">
 						<h1 className="fw-bold fs-5" id="weatherLocation">
-							{db.get("WEATHER_LOCATION") || "Lagos 9ja"}
+							{db.get("WEATHER_LOCATION") || "Port-au-Prince, HT"}
 						</h1>
 						<p className="date-time text-muted brand-small-text text-capitalize">
 							{getCurrentDate()}
