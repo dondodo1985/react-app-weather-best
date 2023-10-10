@@ -18,6 +18,7 @@ import HumidityIcon from "./../assets/humidity-icon.svg";
 import WindIcon from "./../assets/wind-icon.svg";
 import PressureIcon from "./../assets/pressure-icon.svg";
 import wmo from "./../assets/wmo.jpg";
+import { getWeekDays } from "../inc/scripts/utilities";
 
 const WeatherApp = () => {
 	//check if the user navigated from the home page
@@ -242,6 +243,8 @@ const WeatherApp = () => {
 		setComponentToInsert(<SearchComponent />);
 	};
 
+	const forecastDays = getWeekDays();
+
 	return (
 		<React.Fragment>
 			<Spinner />
@@ -364,21 +367,25 @@ const WeatherApp = () => {
 					<section
 						role="button"
 						className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
-						<p className="brand-small-text text-capitalize fw-bold">today</p>
+						<p className="brand-small-text text-capitalize fw-bold">Today</p>
 						<div className="future-weather-notch-active"></div>
 					</section>
 					<section
 						role="button"
 						className="tomorrow-section d-flex mx-2 flex-column align-items-center justify-content-center"
 						onClick={navigateToForecast}>
-						<p className="brand-small-text text-capitalize">tomorrow</p>
+						<p className="brand-small-text text-capitalize">
+							{forecastDays[0]}
+						</p>
 						<div className="future-weather-notch"></div>
 					</section>
 					<section
 						role="button"
 						className="week-section d-flex mx-2 flex-column align-items-center justify-content-center"
 						onClick={navigateToForecast}>
-						<p className="brand-small-text text-capitalize">next</p>
+						<p className="brand-small-text text-capitalize">
+							{forecastDays[1]}
+						</p>
 						<div className="future-weather-notch"></div>
 					</section>
 				</section>

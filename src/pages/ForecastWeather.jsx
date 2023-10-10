@@ -8,8 +8,9 @@ import * as currentWeather from "./../apis/getCurrentWeather";
 import ForecastDailyWeatherComponent from "./../components/forecastWeatherComponent";
 import Swal from "sweetalert2";
 import wmo from "./../assets/wmo.jpg";
-
 import * as utilis from "./../inc/scripts/utilities";
+import { getWeekDays } from "./../inc/scripts/utilities";
+
 const ForecastWeather = () => {
 	//check if the user navigated from the home page
 	if (!db.get("HOME_PAGE_SEEN")) {
@@ -18,6 +19,8 @@ const ForecastWeather = () => {
 	//holds the current component to insert into the utility footer component
 	const [componentToInsert, setComponentToInsert] = useState("");
 	const [forecastData, setForecastData] = useState(null);
+
+	const forecastDays = getWeekDays();
 
 	useEffect(() => {
 		jQuery(($) => {
@@ -446,7 +449,10 @@ const ForecastWeather = () => {
 
 					<section className="day-1-container future-weather-days d-flex align-items-center justify-content-start">
 						<section className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
-							<p className="brand-small-text text-capitalize fw-bold">Day 1</p>
+							<p className="brand-small-text text-capitalize fw-bold">
+								{/*Day 1*/}
+								{forecastDays[0]}
+							</p>
 							<div className="future-weather-notch-active"></div>
 						</section>
 					</section>
@@ -461,7 +467,9 @@ const ForecastWeather = () => {
 					<br />
 					<section className="day-2-container future-weather-days d-flex align-items-center justify-content-start">
 						<section className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
-							<p className="brand-small-text text-capitalize fw-bold">Day 2</p>
+							<p className="brand-small-text text-capitalize fw-bold">
+								{forecastDays[1]}
+							</p>
 							<div className="future-weather-notch-active"></div>
 						</section>
 					</section>
@@ -476,7 +484,9 @@ const ForecastWeather = () => {
 					<br />
 					<section className="day-3-container future-weather-days d-flex align-items-center justify-content-start">
 						<section className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
-							<p className="brand-small-text text-capitalize fw-bold">Day 3</p>
+							<p className="brand-small-text text-capitalize fw-bold">
+								{forecastDays[2]}
+							</p>
 							<div className="future-weather-notch-active"></div>
 						</section>
 					</section>
@@ -491,7 +501,9 @@ const ForecastWeather = () => {
 					<br />
 					<section className="day-4-container future-weather-days d-flex align-items-center justify-content-start">
 						<section className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
-							<p className="brand-small-text text-capitalize fw-bold">Day 4</p>
+							<p className="brand-small-text text-capitalize fw-bold">
+								{forecastDays[3]}
+							</p>
 							<div className="future-weather-notch-active"></div>
 						</section>
 					</section>
@@ -506,7 +518,9 @@ const ForecastWeather = () => {
 					<br />
 					<section className="day-5-container future-weather-days d-flex align-items-center justify-content-start">
 						<section className="today-section d-flex mx-2 flex-column align-items-center justify-content-center">
-							<p className="brand-small-text text-capitalize fw-bold">Day 5</p>
+							<p className="brand-small-text text-capitalize fw-bold">
+								{forecastDays[4]}
+							</p>
 							<div className="future-weather-notch-active"></div>
 						</section>
 					</section>

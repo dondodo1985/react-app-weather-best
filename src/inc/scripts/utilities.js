@@ -135,3 +135,21 @@ export function getTimeFromDateString(datetime) {
 	return formattedTime;
 }
 export default navigate;
+
+export const DAYS = [
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday",
+	"Sunday",
+];
+
+export function getWeekDays() {
+	const dayInAWeek = new Date().getDay();
+	const days = DAYS.slice(dayInAWeek, DAYS.length).concat(
+		DAYS.slice(0, dayInAWeek)
+	);
+	return days;
+}
