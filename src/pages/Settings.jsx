@@ -47,15 +47,15 @@ const Settings = () => {
 							id="settingsForm"
 							onSubmit={(e) => e.preventDefault()}>
 							<label
-								htmlFor="defaultLocation "
-								className="brand-small-text py-3">
+								htmlFor="defaultLocation"
+								className="py-2 my-2 text-capitalize">
 								Update your default location
 							</label>
 							<input
 								type="text"
 								name="defaultLocation"
 								id="defaultLocation"
-								className="form-control p-3 my-1 brand-small-text "
+								className="form-control p-3 my-1 brand-small-text text-capitalize "
 								value={defaultLocation}
 								placeholder={"Enter your default location to track.."}
 								onChange={(e) => {
