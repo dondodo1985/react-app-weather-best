@@ -57,7 +57,7 @@ const Settings = () => {
 								id="defaultLocation"
 								className="form-control p-3 my-1 brand-small-text text-capitalize "
 								value={defaultLocation}
-								placeholder={"Enter your default location to track.."}
+								placeholder={"Enter your default location to track..."}
 								onChange={(e) => {
 									setDefaultLocation(e.target.value);
 								}}
@@ -65,7 +65,7 @@ const Settings = () => {
 							<section className="my-2 d-md-flex align-items-center justify-content-md-center d-lg-block">
 								<Button
 									text="save location"
-									className="shadow brand-btn-3  my-5 text-light text-capitalize"
+									className="shadow brand-btn-3 my-5 text-light text-capitalize py-1"
 									onClick={(e) => {
 										settings.saveLocation(e);
 									}}
@@ -103,7 +103,7 @@ const Settings = () => {
 							<section className="my-2 d-md-flex align-items-center justify-content-md-center d-lg-block">
 								<Button
 									text="save unit"
-									className="shadow brand-btn-3-secondary toggle-width-3 my-5 text-dark text-capitalize p-2"
+									className="shadow brand-btn-3-secondary toggle-width-3 my-5 text-dark text-capitalize py-1"
 									onClick={(e) => settings.changeWeatherUnit(e)}
 								/>
 							</section>
@@ -114,14 +114,14 @@ const Settings = () => {
 
 							<section className="factory-settings my-3">
 								<label
-									htmlFor="factory-settings-reset "
+									htmlFor="factory-settings-reset my-2 py-2"
 									className="text-capitalize">
 									restore factory settings
 								</label>
 								<section className="d-md-flex align-items-center justify-content-center d-lg-block">
 									<Button
 										text="restore settings"
-										className="shadow brand-btn-3-secondary toggle-width-3 my-5 text-dark text-capitalize p-2"
+										className="shadow brand-btn-3-secondary toggle-width-3 my-5 text-dark text-capitalize py-1"
 										onClick={settings.restoreFactorySettings}
 									/>
 								</section>

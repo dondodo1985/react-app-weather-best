@@ -66,7 +66,7 @@ const Settings = () => {
 						<section className="d-md-flex align-items-center justify-content-center">
 							<Button
 								text="support on github"
-								className="shadow brand-btn-3-secondary my-5 text-dark p-2 text-capitalize width-toggle"
+								className="shadow brand-btn-3-secondary my-5 text-dark py-1 text-capitalize width-toggle"
 								onClick={navigateToGithub}
 							/>
 						</section>
@@ -94,7 +94,7 @@ const Settings = () => {
 						<section className="d-md-flex align-items-center justify-content-center">
 							<Button
 								text="view github repository"
-								className="shadow brand-btn-3-secondary my-5 text-dark p-2 text-capitalize width-toggle"
+								className="shadow brand-btn-3-secondary my-5 text-dark py-1 text-capitalize width-toggle"
 								onClick={navigateToProject}
 							/>
 						</section>
