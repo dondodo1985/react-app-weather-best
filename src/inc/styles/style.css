@@ -37,8 +37,8 @@ body {
 		var(var(--brand-primary-color)),
 		var(var(--brand-secondary-color))
 	);
-	--brand-input-border-radius: 5px;
-	--brand-button-3-border-radius: 5px;
+	--brand-input-border-radius: 10px;
+	--brand-button-3-border-radius: 10px;
 	--brand-small-text-2: 0.7rem;
 }
 
@@ -294,7 +294,7 @@ h5 {
 
 .brand-btn-3-secondary {
 	display: block;
-	width: 60%;
+	width: 60% !important;
 	margin: 1em auto;
 	height: 2.2em;
 	font-size: 1rem;
@@ -309,13 +309,13 @@ h5 {
 	display: block;
 	width: 60%;
 	margin: 1em auto;
-	height: 2em;
-	font-size: 1.1rem;
+	height: 2.2em;
+	font-size: 1rem;
 	min-width: 300px;
 	border-radius: var(--brand-button-3-border-radius);
 	outline: 0;
 	border: 0;
-	padding: 10px;
+	/*padding: 10px;*/
 	background: var(--brand-primary-color);
 }
 /*end pages settings*/
